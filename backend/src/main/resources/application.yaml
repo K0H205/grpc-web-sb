@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: grpc-web-sb
+  threads:
+    virtual:
+      enabled: true
+  grpc:
+    server:
+      # 既存クライアント向けのネイティブ gRPC (HTTP/2, Netty)
+      port: 9090
+      inprocess:
+        # gRPC-Web ブリッジが呼び出す in-process サーバ。
+        # exclusive=false でネイティブ gRPC サーバと併存させる
+        name: grpc-web-bridge
+        exclusive: false
+
+server:
+  port: 8080
+
+grpc-web:
+  # ブラウザからは POST {path}/{package.Service}/{Method}
+  path: /grpc-web
+  # 別オリジンから呼ぶ場合に許可するオリジン (Vite dev server を直接叩くとき等)
+  allowed-origins:
+    - http://localhost:5173

@@ -1,0 +1,16 @@
+# Gradle / JVM
+.gradle/
+build/
+*.class
+.kotlin/
+
+# Node
+node_modules/
+dist/
+frontend/src/gen/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store

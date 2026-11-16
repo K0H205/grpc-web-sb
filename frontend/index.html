@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gRPC-Web demo</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; }
+      input { padding: .4rem; }
+      button { padding: .4rem .8rem; margin-left: .25rem; }
+      pre { background: #f4f4f5; padding: .75rem; border-radius: 6px; min-height: 6rem; white-space: pre-wrap; }
+      .error { color: #b91c1c; }
+    </style>
+  </head>
+  <body>
+    <h1>gRPC-Web demo</h1>
+    <form id="form">
+      <input id="name" placeholder="name" value="World" />
+      <button type="submit" id="unary">SayHello</button>
+      <button type="button" id="stream">SayHelloStream</button>
+    </form>
+    <pre id="out"></pre>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

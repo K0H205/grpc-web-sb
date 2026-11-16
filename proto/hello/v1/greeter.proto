@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package hello.v1;
+
+option java_multiple_files = true;
+option java_package = "com.example.grpcweb.proto.hello.v1";
+
+// サンプルサービス。gRPC-Web が扱える unary / server streaming の両方を持つ。
+service GreeterService {
+  // name が空なら INVALID_ARGUMENT を返す。
+  rpc SayHello(SayHelloRequest) returns (SayHelloResponse);
+
+  // count 回 (省略時 3 回) 挨拶をストリームで返す。
+  rpc SayHelloStream(SayHelloStreamRequest) returns (stream SayHelloStreamResponse);
+}
+
+message SayHelloRequest {
+  string name = 1;
+}
+
+message SayHelloResponse {
+  string message = 1;
+}
+
+message SayHelloStreamRequest {
+  string name = 1;
+  int32 count = 2;
+}
+
+message SayHelloStreamResponse {
+  string message = 1;
+  int32 index = 2;
+}
